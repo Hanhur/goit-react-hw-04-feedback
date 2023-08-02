@@ -1,14 +1,16 @@
 import PropTypes from 'prop-types';
-import css from './Section.module.css';
 
-export function Section({ title, children }) 
-{
+export const Section = ({ title, children }) => {
     return (
-        <div>
-            <h1 className={css.feedbackTitle}>{title}</h1>
+        <section>
+            <h1 className={title}>{title}</h1>
             {children}
-        </div>
-    );
+        </section>
+
+    )
 }
 
-Section.propTypes = { title: PropTypes.string.isRequired };
+Section.propTypes = {
+    title: PropTypes.string.isRequired,
+    children: PropTypes.element,
+}

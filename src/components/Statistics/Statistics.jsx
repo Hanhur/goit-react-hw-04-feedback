@@ -1,27 +1,25 @@
 import PropTypes from 'prop-types';
-import css from './Statistics.module.css';
+import style from './Statistics.module.css'
 
-export function Statistics({ good, neutral, bad, total, positivePercentage }) 
-{
+export const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
     return (
         <div>
-            <div>
-                <p className={css.statisticText}>Good: {good}</p>
-                <p className={css.statisticText}>Neutral: {neutral}</p>
-                <p className={css.statisticText}>Bad: {bad}</p>
-                <p className={css.statisticText}>Total: {total}</p>
-                <p className={css.statisticText}>
-                    Positive feedback:{' '}
-                    {Number.isNaN(positivePercentage) ? '0' : positivePercentage}%</p>
-            </div>
+            <div className={style.good}>Good: {good}</div>
+            <div className={style.neutral}>Neutral: {neutral}</div>
+            <div className={style.bad}>Bad: {bad}</div>
+            <div className={style.option}>Total: {total}</div>
+            <div className={style.positive}>Positive Feedback: {positivePercentage}%</div>
         </div>
-    );
+
+    )
 }
 
-Statistics.propTypes = {
+Statistics.prototype = {
     good: PropTypes.number.isRequired,
     neutral: PropTypes.number.isRequired,
     bad: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired,
     positivePercentage: PropTypes.number.isRequired,
-};
+}
+
+
